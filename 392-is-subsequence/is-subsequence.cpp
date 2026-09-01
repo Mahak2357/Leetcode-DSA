@@ -10,6 +10,8 @@ public:
 
             j++;
         }
-        return i==s.length();
+        // this also handles if s="" (empty string case)
+        return i==s.length(); //this automatically gives result true or false if i==s.lenghth() success or fails
+        
     }
 };
