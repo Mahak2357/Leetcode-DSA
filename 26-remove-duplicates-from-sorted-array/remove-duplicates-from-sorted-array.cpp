@@ -1,17 +1,18 @@
 class Solution {
 public:
     int removeDuplicates(vector<int>& nums) {
-        // two pointer approach
         int n=nums.size();
-        if(n==0) // array is empty
+        // if  there is empty array
+        if(n==0)
         return 0;
 
-        int i=0;
-        for (int j=1;j<n;j++){
-            if(nums[i]!=nums[j]) // if finds unique element
-            i++;
-            nums[i]=nums[j]; //store the value
+        int k=1;
+        for(int j=1;j<n;j++){
+            if(nums[j]!=nums[j-1]){
+                nums[k]=nums[j];
+                k++;
+            }
         }
-        return i+1;
+        return k;
     }
 };
