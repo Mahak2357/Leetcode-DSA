@@ -1,20 +1,23 @@
 class Solution {
 public:
     vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
-        int n=nums1.size();
-        int m=nums2.size();
-        vector<int>ans;
+        vector<int> ans;
+        unordered_set<int>s;
+        int n = nums1.size();
+        int m = nums2.size();
 
+        // store nums1 elements in set
         for(int i=0;i<n;i++){
-            for(int j=0;j<m;j++){
-                if(nums1[i]==nums2[j]){
-            if(find(ans.begin(), ans.end(), nums1[i]) == ans.end()) {
-             ans.push_back(nums1[i]);
-            }
-             break;
-                }
-            }
+            s.insert(nums1[i]);
         }
-        return ans;
+
+        // check values from nums2 in that set
+         for(int i=0;i<m;i++){
+            if(s.find(nums2[i])!=s.end()){
+                ans.push_back(nums2[i]);
+                s.erase(nums2[i]);
+            }
+         }
+         return ans;
     }
 };
