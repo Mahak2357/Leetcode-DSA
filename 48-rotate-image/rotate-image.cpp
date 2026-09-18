@@ -11,7 +11,7 @@ public:
             }
         }
 
-        // STEP 2: REVERSE THE WHOLE TRANSPOSED MATRIX
+        // STEP 2: REVERSE THE ROW OF WHOLE TRANSPOSED MATRIX
         for(int i=0;i<n;i++){
         reverse(matrix[i].begin(),matrix[i].end());
         }
